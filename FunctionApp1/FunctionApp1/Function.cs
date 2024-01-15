@@ -17,7 +17,8 @@ public class Function
         ILogger logger = executionContext.GetLogger("Function_HttpStart");
 
         // Function input comes from the request content.
-        var instanceId = await client.ScheduleNewOrchestrationInstanceAsync(nameof(MyOrchestration));
+        //var instanceId = await client.ScheduleNewOrchestrationInstanceAsync(nameof(RunOrchestrator));
+        var instanceId = await client.ScheduleNewMyOrchestrationInstanceAsync(string.Empty);
 
         logger.LogInformation("Started orchestration with ID = '{instanceId}'.", instanceId);
 

@@ -12,9 +12,9 @@ public class MyOrchestration : TaskOrchestrator<string, List<string>>
         var outputs = new List<string>();
 
         // Replace name and input with values relevant for your Durable Functions Activity
-        outputs.Add(await context.CallActivityAsync<string>(nameof(MyActivity), "Tokyo"));
-        outputs.Add(await context.CallActivityAsync<string>(nameof(MyActivity), "Seattle"));
-        outputs.Add(await context.CallActivityAsync<string>(nameof(MyActivity), "London"));
+        outputs.Add(await context.CallMyActivityAsync("Tokyo"));
+        outputs.Add(await context.CallMyActivityAsync("Seattle"));
+        outputs.Add(await context.CallMyActivityAsync("London"));
 
         // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
         return outputs;
