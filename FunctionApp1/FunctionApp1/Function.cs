@@ -18,12 +18,10 @@ public class Function
 
         // Function input comes from the request content.
         //var instanceId = await client.ScheduleNewOrchestrationInstanceAsync(nameof(RunOrchestrator));
-        var instanceId = await client.ScheduleNewMyOrchestrationInstanceAsync(string.Empty);
+        var instanceId = await client.ScheduleNewHelloCitiesTypedInstanceAsync();
 
-        logger.LogInformation("Started orchestration with ID = '{instanceId}'.", instanceId);
+        logger.LogInformation("Created new orchestration with instance ID = {instanceId}", instanceId);
 
-        // Returns an HTTP 202 response with an instance management payload.
-        // See https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-http-api#start-orchestration
         return client.CreateCheckStatusResponse(req, instanceId);
     }
 
